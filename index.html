@@ -1,0 +1,39 @@
+<canvas id="canva" width="438" height="438"></canvas>
+
+<script src="scripts/engine.js"></script>
+<script src="scripts/snake.js"></script>
+<script src="scripts/game.js"></script>
+
+<script>
+  const canva = new Retro('#canva');
+  canva.frameInterval = 120;
+  canva.pixelSize = 20;
+
+  const snake = new Snake();
+  canva.drawGrid(20, 20, '#eee');
+
+  canva.onKey('ArrowUp', function() {
+    snake.changeDirection('up');
+  });
+
+  canva.onKey('ArrowDown', function() {
+    snake.changeDirection('down');
+  });
+  
+  canva.onKey('ArrowRight', function() {
+    snake.changeDirection('right');
+  });
+
+  canva.onKey('ArrowLeft', function() {
+    snake.changeDirection('left');
+  });
+
+  canva.loop(() => {
+    canva.drawGrid(20, 20, '#eee');
+
+    snake.takeStep();
+    snake.draw(canva);
+
+    canva.pixel(10, 10, canva.randomColor())
+  });
+</script>
