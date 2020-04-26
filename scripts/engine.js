@@ -1,7 +1,7 @@
 class Retro {
   constructor(canvaSelector) {
     this.pixelSize = 20;
-    this.frameInterval = 100;
+    this.frameInterval = 16; // 16 to 60 fps
 
     this.canva = document.querySelector(canvaSelector);
     this.context = this.canva.getContext('2d');
@@ -60,5 +60,7 @@ class Retro {
         keypressFunction()
       };
     });
+
+    return this;
   }
 }

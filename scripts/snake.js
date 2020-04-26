@@ -40,9 +40,9 @@ class Snake {
   draw(canva) {
     const body = this.body;
 
-    for(let index = 0; index < body.length; index++) {
-      canva.pixel(body[index].x, body[index].y, '#000');
-    }
+    body.forEach((pixel) => {
+      canva.pixel(pixel.x, pixel.y, '#000');
+    });
   }
 
   tail() {
